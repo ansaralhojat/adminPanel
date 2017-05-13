@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>سامانه مدیریت سایت</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <h:outputStylesheet>
+        @font-face {
+            font-family:'BYekan';/*تعریف یک نام برای فونت*/
+            src:url('resource/font/Yekan.eot');/*اکسپلورر 9 به بعد*/
+            src:local('bYekan'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+            local('b Yekan'),/*برای برخی از مرورگرها مانند سافاری*/
+            url('resource/font/Yekan.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+            url('resource/font/Yekan.woff') format('woff'),/*مرورگر های جدید*/
+            url('resource/font/Yekan.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+            url('resource/font/Yekan.svg#BYekan') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+            font-style:normal;
+            font-weight:normal;
+        }
+        p, span, a, label, ul, li {
+            font-family:BYekan, Tahoma, Geneva, sans-serif;
+            font-size:14px;
+        }
+        h1 {
+            font-family:BYekan, Tahoma, Geneva, sans-serif;
+            font-size:16px;
+        }
+        .subject {
+            font-family:BYekan, Tahoma, Geneva, sans-serif;
+            color: #278CBA;
+            font-weight: bold;
+            font-size:14px;
+        }
+    </h:outputStylesheet>
+    <h:outputScript name="jquery/jquery-plugins.js" library="primefaces"/>
+</h:head>
+<h:body dir="RTL">
+    <f:view locale="#{i18nL10nHelper.locale}">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header navbar-right">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-right" href="http://ansaralhojat.com/" target="_blank">سامانه مدیریت سایت</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="address.xhtml">آدرس</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">شبهه
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="defineThink.xhtml">تعریف شبهه</a></li>
+                                <li><a href="viewThink.xhtml">مشاهده شبهه</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"><a href="index.xhtml">صفحه اصلی</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><p:commandLink action="#{loginWebBean.logout}"><span class="glyphicon glyphicon-log-out"></span>خروج از سامانه</p:commandLink></li>
+                        <li><a href="index.xhtml"><span class="glyphicon glyphicon-user"></span>#{userHolder.currentUser.name} #{userHolder.currentUser.family}</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <ui:insert name="mainPanel" />
+
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <h:outputScript>
+            $.noConflict();
+        </h:outputScript>
+        <h:outputScript>
+            function blink(selector){
+                $(selector).fadeOut('slow', function(){
+                    $(this).fadeIn('slow', function(){
+                        blink(this);
+                    });
+                });
+            }
+            $(document).ready(function(){
+                blink('blink');
+            });
+        </h:outputScript>
+        <h:outputScript>
+            $(function(){
+            $('.carousel').carousel({
+            interval: 2000
+            });
+            });
+        </h:outputScript>
+        <h:outputScript>
+            function confirming(){
+                var agree=confirm("آیا مطمئن هستید؟");
+                if (agree)
+                    return true;
+                else
+                    return false;
+            }
+ co        </h:outputScript>
+    </f:view>
+</h:body>
+</html>

@@ -1,0 +1,17 @@
+@font-face {
+    font-family:'BYekan';/*تعریف یک نام برای فونت*/
+    src:url('resource/font/Yekan.eot');/*اکسپلورر 9 به بعد*/
+    src:local('bYekan'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+    local('b Yekan'),/*برای برخی از مرورگرها مانند سافاری*/
+    url('resource/font/Yekan.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+    url('resource/font/Yekan.woff') format('woff'),/*مرورگر های جدید*/
+    url('resource/font/Yekan.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+    url('resource/font/Yekan.svg#BYekan') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+    font-style:normal;
+    font-weight:normal;
+}
+p {
+    font-family:BYekan, Tahoma, Geneva, sans-serif;
+    display:block;
+    font-size:16px;
+}

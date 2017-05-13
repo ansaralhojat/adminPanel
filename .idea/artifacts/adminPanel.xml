@@ -8,6 +8,7 @@
         </element>
         <element id="directory" name="classes">
           <element id="module-output" name="adminPanel" />
+          <element id="jpa-descriptors" facet="adminPanel/jpa/JPA" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="adminPanel/web/Web" />

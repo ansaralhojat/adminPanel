@@ -3,8 +3,28 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="mainPanel">
+        <p:panel id="toggleable" header="مشخصات کاربر" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px;">
+            <h:graphicImage value="resource/image/user.png" style="margin-left: 20px;" />
+            <h:form>
+                 <span style="text-align: center;">#{userHolder.currentUser.name} #{userHolder.currentUser.family} </span>
+                <p:clock pattern="HH:mm:ss" />
+            </h:form>
+            <f:facet name="options">
+                <p:menu>
+                    <p:submenu label="Settings">
+                        <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()" />
+                        <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()" />
+                    </p:submenu>
+                </p:menu>
+            </f:facet>
+        </p:panel>
+    </ui:define>
+</ui:composition>
+
 </html>

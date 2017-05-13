@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="ansaralhojatPU" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/datasources/mySQLDS</jta-data-source>
+        <jar-file>lib/ansaralhojat-core.jar</jar-file>
+        <properties>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update" />-->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.connection.CharSet" value="utf-8" />
+            <property name="hibernate.connection.characterEncoding" value="utf-8" />
+            <property name="hibernate.connection.useUnicode" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+<title>ورود به سیستم</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body dir="RTL">
+    <h:form>
+        <p:panel header="ورورد به سیستم" id="panel">
+            <p:messages id="messages">
+                <p:effect type="pulsate" event="load" delay="500" />
+            </p:messages>
+            <div style="text-align: center;">
+                <h:outputLabel for="username" value="نام کاربری" />
+                <br />
+                <p:inputText id="username" value="#{loginWebBean.username}" required="true" requiredMessage="نام کاربری را وارد نمایید" />
+                <br />
+                <h:outputLabel for="password" value="کلمه عبور" />
+                <br />
+                <p:password id="password" value="#{loginWebBean.password}" required="true" requiredMessage="کلمه عبور را وارد نمایید" />
+                <br />
+                <br />
+                <p:commandButton value="ورود" action="#{loginWebBean.login}" update="panel" />
+            </div>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
