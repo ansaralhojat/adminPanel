@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="adminPanel">
+    <output-path>$PROJECT_DIR$/out/artifacts/adminPanel</output-path>
+    <root id="archive" name="adminPanel.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="adminPanel" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="adminPanel/web/Web" />
+    </root>
+  </artifact>
+</component>
