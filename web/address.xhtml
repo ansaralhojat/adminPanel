@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template.xhtml">
+    <ui:define name="mainPanel">
+        <h:form>
+            <p:panel header="آدرس" id="panel" widgetVar="panel" style="margin-bottom:20px;">
+                <p:messages id="messages">
+                    <p:effect type="pulsate" event="load" delay="500"/>
+                </p:messages>
+                <div style="text-align: center;">
+                    <h:outputLabel for="timeInfo" value="زمان"/>
+                    <p:inputText id="timeInfo" value="#{addressWebBean.timeInfo}" required="true"
+                                 requiredMessage="زمان را وارد نمایید"/>
+                    <br/>
+                    <br/>
+
+                    <h:outputLabel for="addressInfo" value="مکان"/>
+                    <p:inputText id="addressInfo" value="#{addressWebBean.addressInfo}" required="true"
+                                 requiredMessage="مکان را وارد نمایید"/>
+                    <br/>
+                    <br/>
+
+                    <h:panelGrid columns="2" cellpadding="3" style="margin-left: auto; margin-right: auto;">
+                        <h:outputLabel for="family" value="مجلس خوهران"/>
+                        <p:selectOneRadio id="family" value="#{addressWebBean.family}" columns="2" required="true"
+                                          requiredMessage="مجلس خوهران را انتخاب نمایید"
+                                          style="align-content: center; align-items: center; align-self: center;">
+                            <f:selectItem itemLabel="دارد" itemValue="true"/>
+                            <f:selectItem itemLabel="ندارد" itemValue="false"/>
+                        </p:selectOneRadio>
+                    </h:panelGrid>
+                    <br/>
+                    <br/>
+
+                    <h:panelGrid columns="2" cellpadding="3" style="margin-left: auto; margin-right: auto;">
+                        <h:outputLabel for="parking" value="پارکینگ"/>
+                        <p:selectOneRadio id="parking" value="#{addressWebBean.parking}" columns="2" required="true"
+                                          requiredMessage="پارکینگ را انتخاب نمایید">
+                            <f:selectItem itemLabel="دارد" itemValue="true"/>
+                            <f:selectItem itemLabel="ندارد" itemValue="false"/>
+                        </p:selectOneRadio>
+                    </h:panelGrid>
+                    <br/>
+                    <br/>
+
+                    <p:commandButton value="ثبت" action="#{addressWebBean.save}" update="panel"/>
+                </div>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

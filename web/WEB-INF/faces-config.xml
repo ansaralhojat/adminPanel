@@ -35,6 +35,11 @@
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+        <navigation-case>
+            <from-outcome>address</from-outcome>
+            <to-view-id>/address.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
     </navigation-rule>
 
 </faces-config>

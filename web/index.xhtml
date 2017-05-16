@@ -9,17 +9,43 @@
 
 <ui:composition template="template.xhtml">
     <ui:define name="mainPanel">
-        <p:panel id="toggleable" header="مشخصات کاربر" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px;">
-            <h:graphicImage value="resource/image/user.png" style="margin-left: 20px;" />
-            <h:form>
-                 <span style="text-align: center;">#{userHolder.currentUser.name} #{userHolder.currentUser.family} </span>
-                <p:clock pattern="HH:mm:ss" />
-            </h:form>
+        <p:panel id="toggleable" header="مشخصات کاربر" toggleable="true" closable="true" toggleSpeed="500"
+                 closeSpeed="500" widgetVar="panel" style="margin-bottom:20px;">
+            <h:panelGrid columns="2">
+                <h:graphicImage
+                        value="#{userHolder.currentUser.pictureAddress == null ? 'resource/image/user.png' : userHolder.currentUser.pictureAddress}"
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        styleClass="img-responsive img-thumbnail"/>
+                <h:panelGrid columns="1">
+                    <span style="text-align: center; font-size:40px">جناب آقای: #{userHolder.currentUser.name} #{userHolder.currentUser.family} </span>
+                    <div>
+                        <link rel="stylesheet" href="http://ansaralhojat.com:8080/resource/flipclock.css"/>
+                        <script type="text/javascript"
+                                src="http://ansaralhojat.com:8080/resource/flipclock.js"></script>
+                        <div class="clock" style="margin: 2em auto; display: inline;"></div>
+
+                        <script type="text/javascript">
+                            var clock;
+
+                            $(document).ready(function () {
+                                clock = $('.clock').FlipClock({
+                                    clockFace: 'TwelveHourClock'
+                                });
+                            });
+                        </script>
+                    </div>
+                </h:panelGrid>
+            </h:panelGrid>
+            <!---->
+            <!--<h:form>-->
+            <!--<p:clock pattern="HH:mm:ss"/>-->
+            <!--</h:form>-->
+            <!--</h:panelGrid>-->
             <f:facet name="options">
                 <p:menu>
                     <p:submenu label="Settings">
-                        <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()" />
-                        <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()" />
+                        <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
+                        <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
                     </p:submenu>
                 </p:menu>
             </f:facet>

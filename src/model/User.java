@@ -11,6 +11,7 @@ public class User extends BaseModel {
     private String name;
     private String family;
     private String MobilePhone;
+    private String pictureAddress;
 
     public String getUsername() {
         return this.username;
@@ -50,5 +51,13 @@ public class User extends BaseModel {
 
     public void setMobilePhone(String mobilePhone) {
         this.MobilePhone = mobilePhone;
+    }
+
+    public String getPictureAddress() {
+        return pictureAddress;
+    }
+
+    public void setPictureAddress(String pictureAddress) {
+        this.pictureAddress = pictureAddress;
     }
 }
